@@ -1,0 +1,15 @@
+{
+  "name": "cs-546-lab3",
+  "version": "1.0.0",
+  "description": "Async programming modules",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Macari 10432224",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
