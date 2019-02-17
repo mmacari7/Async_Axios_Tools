@@ -1,10 +1,11 @@
 // Michael Macari
 // Work module
 
-exports.whereDoTheyWork = function(firstName, lastName){
+exports.whereDoTheyWork = async function(firstName, lastName){
+    
     return
 };
 
-exports.findTheHacker = function(ip){
+exports.findTheHacker = async function(ip){
     return
 };

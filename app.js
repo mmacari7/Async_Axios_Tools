@@ -1,7 +1,41 @@
 // Michael Macari
 // Asynchronus programming
 
-const people = require("./people")
+// Require the modules
+const people = require("./people.js")
+const weather = require("./weather.js")
+const work = require("./work.js")
 
+// Main async function
+async function main(){
+    // getPersonById test
+    try{
+        let res = await people.getPersonById(43)
+        console.log(res)
+    }
+    catch(e){
+        console.log(e)
+    }
 
-console.log("Hello World")
+    // lexIndex Test
+    try{
+        let res = await people.lexIndex(2)
+        console.log(res)
+    }
+    catch(e){
+        console.log(e)
+    }
+
+    // firstNameMetrics Test
+    try{
+        let res = await people.firstNameMetrics()
+        console.log(res)
+    }
+    catch(e){
+        console.log(e)
+    }
+    return
+}
+
+// Call to main
+main()

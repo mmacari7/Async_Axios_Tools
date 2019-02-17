@@ -1,6 +1,6 @@
 // Michael Macari
 // Weather module
 
-exports.shouldTheyGoOutside = function(firstName, lastName){
+exports.shouldTheyGoOutside = async function(firstName, lastName){
     return
 };
