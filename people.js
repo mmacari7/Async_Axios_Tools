@@ -57,10 +57,11 @@ exports.firstNameMetrics = async function(){
     let personsList = await getPeople()
     // Create the object to be returned
     let myObj = {totalLetters:0, totalVowels:0, totalConsonants:0, longestName: undefined, shortestName: undefined}
-    // Create list of vowels
-    let vowels = ['a', 'e', 'i', 'o', 'u']
+    
+    let vowels = /[aeiouAEIOU]/i
+    
     // Loop through JSON to acquire metrics
-    for(let i=0; i < 3; i++){
+    for(let i=0; i < personsList[i].firstName.length; i++){
         // Intial comparison to undefined
         if(myObj.longestName === undefined){
             myObj.longestName = personsList[i].firstName
@@ -81,8 +82,14 @@ exports.firstNameMetrics = async function(){
         }
         // Now iterate through the first name to analyze all the letters
         for(let x=0; x < personsList[i].firstName.length; x++){
+            // Count letters in first name
             myObj.totalLetters++
-
+            // Puts current letter in first name into variable curLet
+            let curLet = personsList[i].firstName.charAt(x)
+            // Checks if letter is a vowel and adds to vowel sum
+            if(curLet.match(vowels)){
+                myObj.totalVowels++
+            }
         }
         
     }
