@@ -43,6 +43,25 @@ async function main(){
     catch(e){
         console.log(e)
     }
+
+    // whereDoTheyWork Test
+    try{
+        let res = await work.whereDoTheyWork('Demetra', 'Durrand')
+        console.log(res)
+    }
+    catch(e){
+        console.log(e)
+    }
+
+    // findTheHacker Test
+    try{
+        let res = await work.findTheHacker('47.67.172.215')
+        console.log(res)
+    }
+    catch(e){
+        console.log(e)
+    }
+
     return
 }
 

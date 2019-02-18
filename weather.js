@@ -3,6 +3,7 @@
 
 const axios = require("axios")
 
+// Function to check if person should go outside
 exports.shouldTheyGoOutside = async function(firstName, lastName){
     // Check that both parameters exist
     if(firstName === undefined || lastName === undefined){
@@ -37,11 +38,7 @@ exports.shouldTheyGoOutside = async function(firstName, lastName){
         }
     }
 
-    // Check if zip existed in weather
-    if(targetTemp === undefined){
-        throw("Error shouldTheyGoOutside: The zip code of the person being searched does not exist in the weather data base")
-    }
-
+    // Temperature comparison
     if(targetTemp >= 34){
         return("Yes, " + firstName + " should go outside.")
     }
