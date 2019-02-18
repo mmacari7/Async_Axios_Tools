@@ -34,6 +34,15 @@ async function main(){
     catch(e){
         console.log(e)
     }
+
+    // shouldTheyGoOutside Test
+    try{
+        let res = await weather.shouldTheyGoOutside('Vachel','Learoid')
+        console.log(res)
+    }
+    catch(e){
+        console.log(e)
+    }
     return
 }
 

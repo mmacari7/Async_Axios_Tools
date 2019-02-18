@@ -53,42 +53,34 @@ exports.lexIndex = async function(index){
 
 // Get first name metrics
 exports.firstNameMetrics = async function(){
-    // Get people
     let personsList = await getPeople()
     // Create the object to be returned
     let myObj = {totalLetters:0, totalVowels:0, totalConsonants:0, longestName: undefined, shortestName: undefined}
     
     let vowels = /[aeiouAEIOU]/i
     
+    
     // Loop through JSON to acquire metrics
-    for(let i=0; i < personsList[i].firstName.length; i++){
-        // Intial comparison to undefined
-        if(myObj.longestName === undefined){
-            myObj.longestName = personsList[i].firstName
-        }
-        // Initial comparison to undefined
-        if(myObj.shortestName === undefined){
-            myObj.shortestName = personsList[i].firstName
-        }
-
+    for(let i=0; i < personsList.length; i++){
         // Check shortest name 
-        if(personsList[i].firstName.length < myObj.shortestName.length){
+        if(myObj.shortestName === undefined || personsList[i].firstName.length < myObj.shortestName.length){
             myObj.shortestName = personsList[i].firstName
         }
 
         //Check longest name
-        if(personsList[i].firstName.length > myObj.longestName.length){
+        if(myObj.longestName === undefined || personsList[i].firstName.length > myObj.longestName.length){
             myObj.longestName = personsList[i].firstName
         }
-        // Now iterate through the first name to analyze all the letters
+        // Iterate through the first name to analyze all the letters
         for(let x=0; x < personsList[i].firstName.length; x++){
             // Count letters in first name
             myObj.totalLetters++
-            // Puts current letter in first name into variable curLet
             let curLet = personsList[i].firstName.charAt(x)
-            // Checks if letter is a vowel and adds to vowel sum
             if(curLet.match(vowels)){
                 myObj.totalVowels++
+            }
+            else{
+                myObj.totalConsonants++
             }
         }
         
